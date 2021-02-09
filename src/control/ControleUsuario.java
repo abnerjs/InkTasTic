@@ -36,7 +36,7 @@ public class ControleUsuario extends Controle<Usuario> {
     }
     public Usuario findByLoginSenha(String login, String senha) {
         EntityManager em = getEntityManager();
-        TypedQuery<Usuario> consulta = em.createNamedQuery("Usuario.findByLoginESenha", Usuario.class);
+        TypedQuery<Usuario> consulta = em.createNamedQuery("Usuario.findByLoginSenha", Usuario.class);
         consulta.setParameter("login", login);
         consulta.setParameter("senha", senha);
         return consulta.getSingleResult();

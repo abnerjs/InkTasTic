@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry exported="true" kind="con" path="net.sf.jasperreports.JR_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/commons-beanutils-1.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/groovy-all-1.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/jasperreports-6.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/mysql-connector-java-8.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/lib/itext-2.1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/dist/Projeto.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abner/Documents/IFSP/BCC/FerramentasI/Projeto/dist/lib/javax.persistence-2.2.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

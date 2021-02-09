@@ -48,6 +48,10 @@ public class UsuarioForm extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         warningPanelForm.setVisible(false);
         warningPanelData.setVisible(false);
+        labelImagem.setVisible(false);
+        atualizaTabela();
+        tableUsuarios.getTableHeader().setBackground(new Color(51,51,51));
+        tableUsuarios.getTableHeader().setForeground(new Color(255,255,255));
     }
 
     private void atualizaTabela() {
@@ -66,12 +70,12 @@ public class UsuarioForm extends javax.swing.JDialog {
     }    
     
     private void makeAllBlack() {
-        txtNome.setForeground(Color.black);
-        txtTelefone.setForeground(Color.black);
-        txtNascimento.setForeground(Color.black);
-        txtLogin.setForeground(Color.black);
-        txtSenha.setForeground(Color.black);
-        txtConfirmar.setForeground(Color.black);
+        txtNome.setForeground(new Color(240,240,240));
+        txtTelefone.setForeground(new Color(240,240,240));
+        txtNascimento.setForeground(new Color(240,240,240));
+        txtLogin.setForeground(new Color(240,240,240));
+        txtSenha.setForeground(new Color(240,240,240));
+        txtConfirmar.setForeground(new Color(240,240,240));
         comboTipo.setForeground(new Color(109, 109, 109));
     }
     
@@ -181,7 +185,7 @@ public class UsuarioForm extends javax.swing.JDialog {
         sidePanel.setBackground(new java.awt.Color(24, 24, 24));
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Mont SemiBold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USUÁRIO");
@@ -189,10 +193,9 @@ public class UsuarioForm extends javax.swing.JDialog {
 
         excludeBtn.setBackground(new java.awt.Color(24, 24, 24));
         excludeBtn.setBorder(null);
-        excludeBtn.setForeground(new java.awt.Color(255, 255, 255));
         excludeBtn.setText("Excluir");
         excludeBtn.setEndColor(new java.awt.Color(24, 24, 24));
-        excludeBtn.setFont(new java.awt.Font("Nunito ExtraBold", 0, 14)); // NOI18N
+        excludeBtn.setFont(new java.awt.Font("Mont Bold", 0, 14)); // NOI18N
         excludeBtn.setHoverEndColor(new java.awt.Color(24, 24, 24));
         excludeBtn.setHoverStartColor(new java.awt.Color(37, 46, 55));
         excludeBtn.setSelectedColor(new java.awt.Color(50, 56, 68));
@@ -207,10 +210,9 @@ public class UsuarioForm extends javax.swing.JDialog {
 
         addBtn.setBackground(new java.awt.Color(24, 24, 24));
         addBtn.setBorder(null);
-        addBtn.setForeground(new java.awt.Color(255, 255, 255));
         addBtn.setText("Adicionar");
         addBtn.setEndColor(new java.awt.Color(24, 24, 24));
-        addBtn.setFont(new java.awt.Font("Nunito ExtraBold", 0, 14)); // NOI18N
+        addBtn.setFont(new java.awt.Font("Mont Bold", 0, 14)); // NOI18N
         addBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         addBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         addBtn.setHoverEndColor(new java.awt.Color(24, 24, 24));
@@ -227,10 +229,9 @@ public class UsuarioForm extends javax.swing.JDialog {
 
         changeBtn.setBackground(new java.awt.Color(24, 24, 24));
         changeBtn.setBorder(null);
-        changeBtn.setForeground(new java.awt.Color(255, 255, 255));
         changeBtn.setText("Alterar");
         changeBtn.setEndColor(new java.awt.Color(24, 24, 24));
-        changeBtn.setFont(new java.awt.Font("Nunito ExtraBold", 0, 14)); // NOI18N
+        changeBtn.setFont(new java.awt.Font("Mont Bold", 0, 14)); // NOI18N
         changeBtn.setHoverEndColor(new java.awt.Color(24, 24, 24));
         changeBtn.setHoverStartColor(new java.awt.Color(37, 46, 55));
         changeBtn.setSelectedColor(new java.awt.Color(50, 56, 68));
@@ -348,7 +349,7 @@ public class UsuarioForm extends javax.swing.JDialog {
         tableUsuarios.setBackground(new java.awt.Color(51, 51, 51));
         tableUsuarios.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tableUsuarios.setFont(new java.awt.Font("Nunito SemiBold", 0, 14)); // NOI18N
-        tableUsuarios.setForeground(new java.awt.Color(72, 72, 72));
+        tableUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -488,7 +489,7 @@ public class UsuarioForm extends javax.swing.JDialog {
         botCancelar.setBorder(null);
         botCancelar.setText("CANCELAR");
         botCancelar.setBorderRadius(50);
-        botCancelar.setFont(new java.awt.Font("Nunito Black", 0, 14)); // NOI18N
+        botCancelar.setFont(new java.awt.Font("Mont Bold", 0, 14)); // NOI18N
         botCancelar.setType(com.hq.swingmaterialdesign.materialdesign.MButton.Type.RAISED);
         botCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -502,7 +503,7 @@ public class UsuarioForm extends javax.swing.JDialog {
         botConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         botConfirmar.setText("Confirmar");
         botConfirmar.setBorderRadius(50);
-        botConfirmar.setFont(new java.awt.Font("Nunito Black", 0, 14)); // NOI18N
+        botConfirmar.setFont(new java.awt.Font("Mont Bold", 0, 14)); // NOI18N
         botConfirmar.setType(com.hq.swingmaterialdesign.materialdesign.MButton.Type.RAISED);
         botConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -522,6 +523,7 @@ public class UsuarioForm extends javax.swing.JDialog {
         });
 
         labelImagem.setBackground(new java.awt.Color(51, 51, 51));
+        labelImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reports/selecionar.png"))); // NOI18N
         labelImagem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelImagemMouseClicked(evt);
@@ -539,7 +541,7 @@ public class UsuarioForm extends javax.swing.JDialog {
         );
         profileImagePanelLayout.setVerticalGroup(
             profileImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelImagem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         formPanel.add(profileImagePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 120, 120));
@@ -773,7 +775,7 @@ public class UsuarioForm extends javax.swing.JDialog {
     }//GEN-LAST:event_mGradientButton1ActionPerformed
 
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
-        btnExit.setForeground(new java.awt.Color(50, 60, 69));
+        btnExit.setForeground(new java.awt.Color(230, 230, 230));
     }//GEN-LAST:event_btnExitMouseEntered
 
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
@@ -801,7 +803,7 @@ public class UsuarioForm extends javax.swing.JDialog {
     }//GEN-LAST:event_mButton4ActionPerformed
 
     private void txtNomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusGained
-        txtNome.setForeground(Color.black);
+        txtNome.setForeground(new Color(240,240,240));
     }//GEN-LAST:event_txtNomeFocusGained
 
     private void botCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCancelarActionPerformed
@@ -945,6 +947,64 @@ public class UsuarioForm extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botConfirmarActionPerformed
 
+    private void profileImagePanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileImagePanelMouseEntered
+        labelImagem.setVisible(true);
+    }//GEN-LAST:event_profileImagePanelMouseEntered
+
+    private void txtNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNascimentoFocusGained
+        txtNascimento.setForeground(new Color(240,240,240));
+        if (txtNascimento.getText().equals("  /  /    "))
+        txtNascimento.setCaretPosition(0);
+    }//GEN-LAST:event_txtNascimentoFocusGained
+
+    private void txtTelefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusGained
+        txtTelefone.setForeground((new Color(240,240,240)));
+    }//GEN-LAST:event_txtTelefoneFocusGained
+
+    private void txtLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoginFocusGained
+        txtLogin.setForeground(new Color(240,240,240));
+    }//GEN-LAST:event_txtLoginFocusGained
+
+    private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
+        txtSenha.setForeground(new Color(240,240,240));
+    }//GEN-LAST:event_txtSenhaFocusGained
+
+    private void txtConfirmarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmarFocusGained
+        txtConfirmar.setForeground(new Color(240,240,240));
+    }//GEN-LAST:event_txtConfirmarFocusGained
+
+    private void comboTipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comboTipoFocusGained
+        comboTipo.setForeground(new Color(153, 153, 153));
+    }//GEN-LAST:event_comboTipoFocusGained
+
+    private void bgMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseDragged
+
+        setLocation(evt.getXOnScreen() - xMouse, evt.getYOnScreen() - yMouse);
+        try {
+            setOpacity((float) 0.9);
+        } catch (java.lang.UnsupportedOperationException e) {
+
+        }
+    }//GEN-LAST:event_bgMouseDragged
+
+    private void bgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_bgMousePressed
+
+    private void bgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseReleased
+
+        try {
+            setOpacity((float) 1);
+        } catch (java.lang.UnsupportedOperationException e) {
+
+        }
+    }//GEN-LAST:event_bgMouseReleased
+
+    private void labelImagemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelImagemMouseExited
+        labelImagem.setVisible(false);
+    }//GEN-LAST:event_labelImagemMouseExited
+
     private void labelImagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelImagemMouseClicked
         JFileChooser jfc = new JFileChooser();
         jfc.setDialogTitle("Selecione a imagem de perfil");
@@ -972,88 +1032,15 @@ public class UsuarioForm extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_labelImagemMouseClicked
 
-    private void labelImagemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelImagemMouseExited
-        labelImagem.setVisible(false);
-    }//GEN-LAST:event_labelImagemMouseExited
-
-    private void profileImagePanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileImagePanelMouseEntered
-        labelImagem.setVisible(true);
-    }//GEN-LAST:event_profileImagePanelMouseEntered
-
-    private void txtNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNascimentoFocusGained
-        txtNascimento.setForeground(Color.black);
-        if (txtNascimento.getText().equals("  /  /    "))
-        txtNascimento.setCaretPosition(0);
-    }//GEN-LAST:event_txtNascimentoFocusGained
-
-    private void txtTelefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusGained
-        txtTelefone.setForeground(Color.black);
-    }//GEN-LAST:event_txtTelefoneFocusGained
-
-    private void txtLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoginFocusGained
-        txtLogin.setForeground(Color.black);
-    }//GEN-LAST:event_txtLoginFocusGained
-
-    private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
-        txtSenha.setForeground(Color.black);
-    }//GEN-LAST:event_txtSenhaFocusGained
-
-    private void txtConfirmarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmarFocusGained
-        txtConfirmar.setForeground(Color.black);
-    }//GEN-LAST:event_txtConfirmarFocusGained
-
-    private void comboTipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comboTipoFocusGained
-        comboTipo.setForeground(new Color(109, 109, 109));
-    }//GEN-LAST:event_comboTipoFocusGained
-
-    private void bgMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseDragged
-
-        setLocation(evt.getXOnScreen() - xMouse, evt.getYOnScreen() - yMouse);
-        try {
-            setOpacity((float) 0.9);
-        } catch (java.lang.UnsupportedOperationException e) {
-
-        }
-    }//GEN-LAST:event_bgMouseDragged
-
-    private void bgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }//GEN-LAST:event_bgMousePressed
-
-    private void bgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseReleased
-
-        try {
-            setOpacity((float) 1);
-        } catch (java.lang.UnsupportedOperationException e) {
-
-        }
-    }//GEN-LAST:event_bgMouseReleased
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code FLAT DARK LAF ">
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UsuarioForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UsuarioForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UsuarioForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatDarkLaf());
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UsuarioForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

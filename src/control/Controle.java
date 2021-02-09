@@ -1,6 +1,7 @@
 package control;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
@@ -9,6 +10,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
+import view.Dashboard;
 
 public abstract class Controle<T> {
 
@@ -17,7 +25,7 @@ public abstract class Controle<T> {
 
     public Controle(Class<T> classe) {
         this.classe = classe;
-        emf = Persistence.createEntityManagerFactory("SIGAMPU");
+        emf = Persistence.createEntityManagerFactory("ProjetoPU");
     }
 
     public EntityManager getEntityManager() {
@@ -50,5 +58,19 @@ public abstract class Controle<T> {
         CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
         cq.select(cq.from(classe));
         return em.createQuery(cq).getResultList();
+    }
+    
+    public void gerarRelatorio(HashMap<String, Object> parametros, List lista, String caminho) throws JRException {
+        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(lista, false);
+        caminho = new File(caminho).getAbsolutePath();
+        try {
+            //JasperReport relatorio = JasperCompileManager.compileReport(caminho);
+            InputStream relatorio = getClass().getResourceAsStream(caminho);
+            JasperPrint print = JasperFillManager.fillReport(relatorio, null, dados);
+            JasperViewer viw = new JasperViewer(print, false);
+            viw.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

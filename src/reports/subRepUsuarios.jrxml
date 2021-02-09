@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRepUsuarios" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2be6c6fd-ab95-43e8-af03-a4e30ad1a8e8">
+	<queryString language="EJBQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="usuario" class="model.Usuario">
+		<fieldDescription><![CDATA[usuario]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="560" height="30" uuid="bb911dda-56f3-46fe-9202-50b01d956398"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Mont" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario}.getNome() + "  -  " + $F{usuario}.getTelefone()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
