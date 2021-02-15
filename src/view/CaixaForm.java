@@ -166,7 +166,7 @@ public class CaixaForm extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Mont SemiBold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("USUÁRIO");
+        jLabel1.setText("CAIXA");
         sidePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 230, 40));
 
         btnRelatorio.setBackground(new java.awt.Color(24, 24, 24));
