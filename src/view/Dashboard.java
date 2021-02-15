@@ -54,6 +54,7 @@ public class Dashboard extends javax.swing.JFrame {
         btnSair = new com.hq.swingmaterialdesign.materialdesign.MButton();
         btnEditarPerfil = new com.hq.swingmaterialdesign.materialdesign.MButton();
         btnOrcamento = new com.hq.swingmaterialdesign.materialdesign.MGradientButton();
+        btnFlashes = new com.hq.swingmaterialdesign.materialdesign.MGradientButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -161,6 +162,18 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        btnFlashes.setForeground(new java.awt.Color(255, 255, 255));
+        btnFlashes.setText("Flashes");
+        btnFlashes.setBorderRadius(20);
+        btnFlashes.setEndColor(new java.awt.Color(184, 27, 232));
+        btnFlashes.setFont(new java.awt.Font("Mont Bold", 0, 18)); // NOI18N
+        btnFlashes.setStartColor(new java.awt.Color(255, 0, 255));
+        btnFlashes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFlashesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
@@ -187,7 +200,10 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(imgPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                        .addGap(27, 27, 27))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(btnFlashes, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +222,9 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 442, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnFlashes, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
                 .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,6 +265,11 @@ public class Dashboard extends javax.swing.JFrame {
         of.setVisible(true);
     }//GEN-LAST:event_btnOrcamentoActionPerformed
 
+    private void btnFlashesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlashesActionPerformed
+        FlashesForm ff = new FlashesForm(this,false);
+        ff.setVisible(true);
+    }//GEN-LAST:event_btnFlashesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,6 +293,7 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private com.hq.swingmaterialdesign.materialdesign.MButton btnEditarPerfil;
+    private com.hq.swingmaterialdesign.materialdesign.MGradientButton btnFlashes;
     private com.hq.swingmaterialdesign.materialdesign.MGradientButton btnOrcamento;
     private com.hq.swingmaterialdesign.materialdesign.MButton btnSair;
     private com.hq.swingmaterialdesign.materialdesign.MGradientButton btnUsuario;

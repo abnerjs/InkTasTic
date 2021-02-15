@@ -30,8 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Sessao.findAll", query = "SELECT s FROM Sessao s"),
     @NamedQuery(name = "Sessao.findById", query = "SELECT s FROM Sessao s WHERE s.id = :id"),
-    @NamedQuery(name = "Sessao.findByValor", query = "SELECT s FROM Sessao s WHERE s.valor = :valor"),
-    @NamedQuery(name = "Sessao.findByHorario", query = "SELECT s FROM Sessao s WHERE s.horario = :horario"),
+    @NamedQuery(name = "Sessao.findByClinete", query = "SELECT s FROM Sessao s WHERE s.idOrcamento.cliente = :cliente"),
+    @NamedQuery(name = "Sessao.findByHorario", query = "SELECT s FROM Sessao s WHERE s.horario between :horario1 and :horario2"),
     @NamedQuery(name = "Sessao.findByDuracaoMaxima", query = "SELECT s FROM Sessao s WHERE s.duracaoMaxima = :duracaoMaxima"),
     @NamedQuery(name = "Sessao.findByPago", query = "SELECT s FROM Sessao s WHERE s.pago = :pago")})
 public class Sessao implements Serializable {
@@ -49,9 +49,6 @@ public class Sessao implements Serializable {
     @Temporal(TemporalType.TIME)
     private Date duracaoMaxima;
     private Boolean pago;
-    @JoinColumn(name = "caixa", referencedColumnName = "id")
-    @ManyToOne
-    private Caixa caixa;
     @JoinColumn(name = "id_orcamento", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Orcamento idOrcamento;
@@ -106,14 +103,6 @@ public class Sessao implements Serializable {
 
     public void setPago(Boolean pago) {
         this.pago = pago;
-    }
-
-    public Caixa getCaixa() {
-        return caixa;
-    }
-
-    public void setCaixa(Caixa caixa) {
-        this.caixa = caixa;
     }
 
     public Orcamento getIdOrcamento() {

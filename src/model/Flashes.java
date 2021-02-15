@@ -27,7 +27,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Flashes.findAll", query = "SELECT f FROM Flashes f"),
     @NamedQuery(name = "Flashes.findById", query = "SELECT f FROM Flashes f WHERE f.id = :id"),
-    @NamedQuery(name = "Flashes.findByDescricao", query = "SELECT f FROM Flashes f WHERE f.descricao = :descricao"),
     @NamedQuery(name = "Flashes.findByImagem", query = "SELECT f FROM Flashes f WHERE f.imagem = :imagem")})
 public class Flashes implements Serializable {
 
@@ -36,8 +35,6 @@ public class Flashes implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     private Integer id;
-    @Basic(optional = false)
-    private String descricao;
     @Lob
     @Basic(optional = false)
     private byte[] imagem;
@@ -52,9 +49,8 @@ public class Flashes implements Serializable {
         this.id = id;
     }
 
-    public Flashes(Integer id, String descricao, byte[] imagem) {
+    public Flashes(Integer id, byte[] imagem) {
         this.id = id;
-        this.descricao = descricao;
         this.imagem = imagem;
     }
 
@@ -64,14 +60,6 @@ public class Flashes implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public byte[] getImagem() {

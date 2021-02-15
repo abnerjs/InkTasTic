@@ -5,6 +5,7 @@ package view;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import control.ControleCaixa;
 import control.ControleUsuario;
 //import control.ControleCaixa;
 import java.awt.Color;
@@ -22,7 +23,7 @@ public class LoginForm extends javax.swing.JFrame {
     private int xMouse;
     private int yMouse;
     private ControleUsuario cu = new ControleUsuario();
-    //private ControleCaixa cc = new ControleCaixa();
+    private ControleCaixa cc = new ControleCaixa();
 
     /**
      * Creates new form loginForm
@@ -56,14 +57,16 @@ public class LoginForm extends javax.swing.JFrame {
                 ControleUsuario.setLogado((Usuario) u);
                 Dashboard tela = new Dashboard();
                 tela.setVisible(true);
-                this.dispose();
                 Caixa c = null;
-//                try {
-//                    c = cc.findByAbertoFuncionario((Secretario) u, new Date());
-//                } catch (NoResultException ex) {
-//                    System.out.println("nao encontrou caixa");
-//                }
-//                ControleCaixa.setCaixa(c);
+                try {
+                    c = cc.findAberto();
+                } catch (NoResultException ex) {
+                    System.out.println("Não encontrou caixa aberto");
+                }
+                ControleCaixa.setCaixa(c);
+                
+                this.dispose();
+                
             } catch (NoResultException e) {
                 labelWarningForm1.setText("Usuário ou senha incorretos");
                 warningPanelForm1.setVisible(true);

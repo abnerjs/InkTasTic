@@ -16,7 +16,6 @@ insert into usuario values (1, 'admin', '1999-10-10', '(18) 99999-9999', null, '
 
 create table flashes(
 	id int primary key auto_increment,
-    descricao varchar(40) not null,
     imagem longblob not null,
     id_usuario int not null,
     
@@ -41,7 +40,7 @@ create table anexo_orcamento(
 create table caixa(
 	id int primary key auto_increment,
 	abertura datetime not null,
-    fechamento datetime not null unique,
+    fechamento datetime unique,
     saldo_inicial double default 0,
     saldo_final double not null,
     entradas double default 0,
@@ -67,13 +66,18 @@ create table sessao(
     horario datetime,
     duracao_maxima time,
     pago boolean default false,
-    caixa int,
-    
-    foreign key (caixa) references caixa(id),    
+
     foreign key (id_orcamento) references orcamento(id)
 );
 
-
+create table pagamento(
+    id int primary key auto_increment,
+    id_sessao int not null,
+    caixa int,
+    valor double not null,
+    foreign key (caixa) references caixa(id),    
+    foreign key (id_sessao) references sessao(id)
+);
 
 
 
@@ -114,7 +118,7 @@ DELIMITER ;
 
 DELIMITER $ 
 CREATE TRIGGER addSessaoCaixa AFTER INSERT
-ON sessao
+ON pagamento
 FOR EACH ROW
 BEGIN
     UPDATE caixa SET entradas = entradas + NEW.valor
@@ -125,18 +129,18 @@ DELIMITER ;
 
 DELIMITER $ 
 CREATE TRIGGER updateSessaoCaixa AFTER UPDATE
-ON sessao
+ON pagamento
 FOR EACH ROW
 BEGIN
-    UPDATE caixa SET entradas = entradas + NEW.valor
+    UPDATE caixa SET entradas = entradas + NEW.valor  - OLD.valor
 	WHERE codigo = NEW.caixa;
 END$
 DELIMITER ;
 
 
 DELIMITER $ 
-CREATE TRIGGER deleteaSessaoCaixa AFTER DELETE
-ON sessao
+CREATE TRIGGER deleteSessaoCaixa AFTER DELETE
+ON pagamento
 FOR EACH ROW
 BEGIN
     UPDATE caixa SET entradas = entradas - OLD.valor
@@ -145,4 +149,58 @@ END$
 DELIMITER ;
 
 
+
+DELIMITER $ 
+CREATE TRIGGER addPagoSessao AFTER INSERT
+ON pagamento
+FOR EACH ROW
+BEGIN
+    SET @idSessao = NEW.id_sessao;
+
+    SELECT SUM(valor) INTO @total FROM pagamento WHERE id_sessao = @idSessao;
+    SELECT valor INTO @preco FROM sessao WHERE id_sessao = @idSessao;
+
+    IF(@total >= @preco) THEN
+        UPDATE sessao SET pago = true
+            WHERE NEW.id_sessao = id;
+    END IF;
+END$
+DELIMITER ;
+
+DELIMITER $ 
+CREATE TRIGGER deletePagoSessao AFTER DELETE
+ON pagamento
+FOR EACH ROW
+BEGIN
+    SET @idSessao = OLD.id_sessao;
+
+    SELECT SUM(valor) INTO @total FROM pagamento WHERE id_sessao = @idSessao;
+    SELECT valor INTO @preco FROM sessao WHERE id_sessao = @idSessao;
+
+    IF(@total < @preco) THEN
+        UPDATE sessao SET pago = false
+            WHERE OLD.id_sessao = id;
+    END IF;
+END$
+DELIMITER ;
+
+DELIMITER $ 
+CREATE TRIGGER deletePagoSessao AFTER UPDATE
+ON pagamento
+FOR EACH ROW
+BEGIN
+    SET @idSessao = OLD.id_sessao;
+
+    SELECT SUM(valor) INTO @total FROM pagamento WHERE id_sessao = @idSessao;
+    SELECT valor INTO @preco FROM sessao WHERE id_sessao = @idSessao;
+
+    IF(@total < @preco) THEN
+        UPDATE sessao SET pago = false
+            WHERE OLD.id_sessao = id;
+    ELSE
+        UPDATE sessao SET pago = true
+            WHERE NEW.id_sessao = id;
+    END IF;
+END$
+DELIMITER ;
 

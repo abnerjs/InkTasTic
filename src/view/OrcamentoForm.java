@@ -1003,7 +1003,7 @@ public class OrcamentoForm extends javax.swing.JDialog {
     }//GEN-LAST:event_bgMouseReleased
 
     private void txtDescricaoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescricaoFocusGained
-        // TODO add your handling code here:
+        txtDescricao.setForeground((new Color(240, 240, 240)));
     }//GEN-LAST:event_txtDescricaoFocusGained
 
     private void txtTelefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusGained
@@ -1011,7 +1011,7 @@ public class OrcamentoForm extends javax.swing.JDialog {
     }//GEN-LAST:event_txtTelefoneFocusGained
 
     private void txtValorEstimadoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorEstimadoFocusGained
-        txtTelefone.setForeground((new Color(240, 240, 240)));
+        txtValorEstimado.setForeground((new Color(240, 240, 240)));
     }//GEN-LAST:event_txtValorEstimadoFocusGained
 
     private void btnAddAnexoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddAnexoMouseEntered

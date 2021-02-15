@@ -10,6 +10,9 @@
     <class>model.Sessao</class>
     <class>model.AnexoOrcamento</class>
     <class>model.Usuario_1</class>
+    <class>model.Caixa_1</class>
+    <class>model.Sessao_1</class>
+    <class>model.Orcamento_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tatuador?useSSL=false&amp;useTimezone=true&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
