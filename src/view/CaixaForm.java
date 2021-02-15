@@ -62,18 +62,19 @@ public class CaixaForm extends javax.swing.JDialog {
             }
         }.start();
     }
-    
-    private void setCaixa() {        
+
+    private void setCaixa() {
         txtInicial.setText(Double.toString(selecionado.getSaldoInicial()));
         txtEntradas.setText(Double.toString(selecionado.getEntradas()));
         txtSaidas.setText(Double.toString(selecionado.getSaidas()));
         txtAbertura.setText(Conversoes.getDatetimeToString(selecionado.getAbertura()));
         txtUsuario.setText(selecionado.getUsuario().getNome());
-        if(selecionado.getFechamento() == null)
+        if (selecionado.getFechamento() == null) {
             txtFechamento.setText(Conversoes.getDatetimeToString(new Date()));
-        else
+        } else {
             txtFechamento.setText(Conversoes.getDatetimeToString(selecionado.getFechamento()));
-            
+        }
+
     }
 
     private void limparCampos() {
@@ -618,26 +619,26 @@ public class CaixaForm extends javax.swing.JDialog {
 
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
         if (!txtData1.getText().equals("  /  /    ") && !txtData2.getText().equals("  /  /    ")) {
-                menuSelection = 4;
-                HashMap<String, Object> parametros = new HashMap();
-                
-                parametros.put("data1", txtData1.getText());
-                parametros.put("data2", txtData2.getText());
+            menuSelection = 4;
+            HashMap<String, Object> parametros = new HashMap();
+
+            parametros.put("data1", txtData1.getText());
+            parametros.put("data2", txtData2.getText());
             try {
                 cc.gerarRelatorio(parametros, cc.findByDatas(txtData1.getText(), txtData2.getText()), "src/relatorios/Balanco.jrxml");
             } catch (JRException ex) {
                 Logger.getLogger(CaixaForm.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            } else {
+        } else {
 
-                labelWarningData.setText("Digite um período de datas.");
-                warningPanelData.setBackground(new Color(255, 51, 51));
-                btnMessage.setBackground(new Color(255, 51, 51));
-                warningPanelData.setVisible(true);
+            labelWarningData.setText("Digite um período de datas.");
+            warningPanelData.setBackground(new Color(255, 51, 51));
+            btnMessage.setBackground(new Color(255, 51, 51));
+            warningPanelData.setVisible(true);
 
-            }
-            voltar();
+        }
+        voltar();
     }//GEN-LAST:event_btnRelatorioActionPerformed
 
     private void btnMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMessageActionPerformed
@@ -695,7 +696,7 @@ public class CaixaForm extends javax.swing.JDialog {
     }//GEN-LAST:event_botCancelarActionPerformed
 
     private void botConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botConfirmarActionPerformed
-        if(selecionado.getFechamento() == null) {
+        if (selecionado.getFechamento() == null) {
             Caixa c = ControleCaixa.getCaixa();
             c.setFechamento(new Date());
             ControleCaixa.setCaixa(null);
@@ -762,6 +763,9 @@ public class CaixaForm extends javax.swing.JDialog {
                 dataPanel.setVisible(false);
                 selecionado = ControleCaixa.getCaixa();
                 setCaixa();
+
+                dataPanel.setVisible(false);
+                formPanel.setVisible(true);
             }
         } else {
             if (menuSelection == 2) {
@@ -790,7 +794,15 @@ public class CaixaForm extends javax.swing.JDialog {
     }//GEN-LAST:event_txtData2FocusGained
 
     private void btnVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarActionPerformed
-        // TODO add your handling code here:
+        int linha = tableUsuarios.getSelectedRow();
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um caixa");
+        } else {
+            selecionado = listaPesquisa.get(linha);
+            setCaixa();
+            dataPanel.setVisible(false);
+            formPanel.setVisible(true);
+        }
     }//GEN-LAST:event_btnVisualizarActionPerformed
 
     /**
