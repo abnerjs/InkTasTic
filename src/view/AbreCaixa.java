@@ -160,6 +160,8 @@ public class AbreCaixa extends javax.swing.JDialog {
         c.setAbertura(new Date());
         c.setSaldoInicial(d);
         c.setUsuario(ControleUsuario.getLogado());
+        c.setEntradas(0.0);
+        c.setSaidas(0.0);
         
         cc.persist(c);
         ControleCaixa.setCaixa(c);

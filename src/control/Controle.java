@@ -14,6 +14,7 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 import view.Dashboard;
@@ -63,9 +64,9 @@ public abstract class Controle<T> {
     public void gerarRelatorio(HashMap<String, Object> parametros, List lista, String caminho) throws JRException {
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(lista, false);
         caminho = new File(caminho).getAbsolutePath();
+        parametros.put("usuario", ControleUsuario.getLogado());
         try {
-            //JasperReport relatorio = JasperCompileManager.compileReport(caminho);
-            InputStream relatorio = getClass().getResourceAsStream(caminho);
+            JasperReport relatorio = JasperCompileManager.compileReport(caminho);
             JasperPrint print = JasperFillManager.fillReport(relatorio, null, dados);
             JasperViewer viw = new JasperViewer(print, false);
             viw.setVisible(true);

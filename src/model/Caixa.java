@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Caixa.findAll", query = "SELECT c FROM Caixa c"),
     @NamedQuery(name = "Caixa.findById", query = "SELECT c FROM Caixa c WHERE c.id = :id"),
     @NamedQuery(name = "Caixa.findByAbertura", query = "SELECT c FROM Caixa c WHERE c.abertura = :abertura"),
+    @NamedQuery(name = "Caixa.findByDatas", query = "SELECT c FROM Caixa c WHERE c.abertura BETWEEN :data1 AND :data2"),
     @NamedQuery(name = "Caixa.findByFechamento", query = "SELECT c FROM Caixa c WHERE c.fechamento = :fechamento"),
     @NamedQuery(name = "Caixa.findAberto", query = "SELECT c FROM Caixa c WHERE c.fechamento = null"),
     @NamedQuery(name = "Caixa.findBySaldoInicial", query = "SELECT c FROM Caixa c WHERE c.saldoInicial = :saldoInicial"),

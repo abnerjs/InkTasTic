@@ -5,6 +5,7 @@
  */
 package view;
 
+import control.ControleCaixa;
 import control.ControleUsuario;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -27,6 +28,9 @@ public class Dashboard extends javax.swing.JFrame {
                 imgPessoa.setImage(im.getImage());
                 imgPessoa.repaint();
             }
+        }
+        if(ControleCaixa.getCaixa() == null) {
+            AbreCaixa ac = new AbreCaixa(this, true);
         }
     }
 
@@ -55,6 +59,7 @@ public class Dashboard extends javax.swing.JFrame {
         btnEditarPerfil = new com.hq.swingmaterialdesign.materialdesign.MButton();
         btnOrcamento = new com.hq.swingmaterialdesign.materialdesign.MGradientButton();
         btnFlashes = new com.hq.swingmaterialdesign.materialdesign.MGradientButton();
+        btnFlashes1 = new com.hq.swingmaterialdesign.materialdesign.MGradientButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -174,6 +179,18 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        btnFlashes1.setForeground(new java.awt.Color(255, 255, 255));
+        btnFlashes1.setText("Caixa");
+        btnFlashes1.setBorderRadius(20);
+        btnFlashes1.setEndColor(new java.awt.Color(184, 27, 232));
+        btnFlashes1.setFont(new java.awt.Font("Mont Bold", 0, 18)); // NOI18N
+        btnFlashes1.setStartColor(new java.awt.Color(255, 0, 255));
+        btnFlashes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFlashes1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
@@ -203,6 +220,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(27, 27, 27))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(btnFlashes, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnFlashes1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         bgLayout.setVerticalGroup(
@@ -223,7 +242,9 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnFlashes, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFlashes, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFlashes1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
                 .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -270,6 +291,11 @@ public class Dashboard extends javax.swing.JFrame {
         ff.setVisible(true);
     }//GEN-LAST:event_btnFlashesActionPerformed
 
+    private void btnFlashes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlashes1ActionPerformed
+        CaixaForm cf = new CaixaForm(this,false);
+        cf.setVisible(true);
+    }//GEN-LAST:event_btnFlashes1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -294,6 +320,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private com.hq.swingmaterialdesign.materialdesign.MButton btnEditarPerfil;
     private com.hq.swingmaterialdesign.materialdesign.MGradientButton btnFlashes;
+    private com.hq.swingmaterialdesign.materialdesign.MGradientButton btnFlashes1;
     private com.hq.swingmaterialdesign.materialdesign.MGradientButton btnOrcamento;
     private com.hq.swingmaterialdesign.materialdesign.MButton btnSair;
     private com.hq.swingmaterialdesign.materialdesign.MGradientButton btnUsuario;

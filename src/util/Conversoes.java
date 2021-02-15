@@ -10,45 +10,32 @@ import java.util.Date;
 public class Conversoes {
     
     public static String getDateToString(Date date) {
-        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String s = formatter.format(date);
-        return s;
+        return new SimpleDateFormat("dd/MM/yyyy").format(date);
+    }
+    
+    public static String getDatetimeToString(Date date) {
+        return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date);
     }
    
-    public static int getDaysBetween(Date inicio, Date fim) {
-        int result;
-        long dt = (inicio.getTime() - fim.getTime()) + 360000;
-        long n =  dt/ 86400000L;
-        try {
-            result = (int) n; 
-            return (int) n;
-        } catch(Exception e) {
-         
-            throw new Error("Erro na conversão de Long para int:\n>> getDaysBetween(dataInicio, dataFim)");
-        }
-    }
     public static String getTimeToString(Date horario){
-        String hora = new SimpleDateFormat("HH:mm").format(horario);
-        return hora;
+        return new SimpleDateFormat("HH:mm").format(horario);
     }
     
     public static Date getStringToTime(String param) {
-        SimpleDateFormat sdFormat = new SimpleDateFormat("HH:mm");
-        Date date = new Date();
-        
-        try {
-            date.setTime(sdFormat.parse(param).getTime());
-        } catch (ParseException ex) {
-            date = new Date();
-           
-        }
-        return date;
-    }
-    public static Date getStringToDate(String param) {
-        SimpleDateFormat sdFormat = new SimpleDateFormat("dd/MM/yyyyy");
         Date date;
         try {
-            date = sdFormat.parse(param);
+            date = new SimpleDateFormat("HH:mm").parse(param);
+        } catch (ParseException ex) {
+            date = new Date();
+        }
+        
+        return date;
+    }
+    
+    public static Date getStringToDate(String param) {
+        Date date;
+        try {
+            date = new SimpleDateFormat("dd/MM/yyyyy").parse(param);
         } catch (ParseException ex) {
             date = new Date();
            
@@ -56,11 +43,15 @@ public class Conversoes {
         return date;
     }
     
-    public static BigDecimal calculaIdade(Date dataDoMeuNascimento) throws ParseException{
-        BigDecimal qtdDias = new BigDecimal(getDaysBetween(dataDoMeuNascimento,new Date()));
-        BigDecimal ano = new BigDecimal(365.25);
-        BigDecimal idade = qtdDias.divide(ano,0, RoundingMode.DOWN);
-        return idade.multiply(new BigDecimal(-1));        
+    public static Date getStringToDatetime(String param) {
+        Date date;
+        try {
+            date = new SimpleDateFormat("dd/MM/yyyyy HH:mm").parse(param);
+        } catch (ParseException ex) {
+            date = new Date();
+           
+        }
+        return date;
     }
     
     public static Date somaData(Date data, int somaDias)
