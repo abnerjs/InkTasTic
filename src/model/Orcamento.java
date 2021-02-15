@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Orcamento.findAll", query = "SELECT o FROM Orcamento o"),
     @NamedQuery(name = "Orcamento.findById", query = "SELECT o FROM Orcamento o WHERE o.id = :id"),
     @NamedQuery(name = "Orcamento.findByDescricao", query = "SELECT o FROM Orcamento o WHERE o.descricao = :descricao"),
-    @NamedQuery(name = "Orcamento.findByCliente", query = "SELECT o FROM Orcamento o WHERE o.cliente = :cliente"),
+    @NamedQuery(name = "Orcamento.findByCliente", query = "SELECT o FROM Orcamento o WHERE o.cliente like :cliente"),
     @NamedQuery(name = "Orcamento.findByTelefone", query = "SELECT o FROM Orcamento o WHERE o.telefone = :telefone"),
     @NamedQuery(name = "Orcamento.findByValorEstimado", query = "SELECT o FROM Orcamento o WHERE o.valorEstimado = :valorEstimado")})
 public class Orcamento implements Serializable {
@@ -49,7 +49,7 @@ public class Orcamento implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "valor_estimado")
     private Double valorEstimado;
-    @OneToMany(mappedBy = "idOrcamento")
+    @OneToMany(mappedBy = "idOrcamento", cascade = CascadeType.PERSIST)
     private Collection<AnexoOrcamento> anexoOrcamentoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idOrcamento")
     private Collection<Sessao> sessaoCollection;

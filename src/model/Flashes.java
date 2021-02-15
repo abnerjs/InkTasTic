@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -37,8 +38,9 @@ public class Flashes implements Serializable {
     private Integer id;
     @Basic(optional = false)
     private String descricao;
+    @Lob
     @Basic(optional = false)
-    private String imagem;
+    private byte[] imagem;
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Usuario idUsuario;
@@ -50,7 +52,7 @@ public class Flashes implements Serializable {
         this.id = id;
     }
 
-    public Flashes(Integer id, String descricao, String imagem) {
+    public Flashes(Integer id, String descricao, byte[] imagem) {
         this.id = id;
         this.descricao = descricao;
         this.imagem = imagem;
@@ -72,11 +74,11 @@ public class Flashes implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
 

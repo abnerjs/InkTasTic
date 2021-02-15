@@ -7,16 +7,17 @@ create table usuario(
     nome varchar(60) not null,
     data_nascimento date not null,
     telefone varchar(15),
-    foto_perfil varchar(30),
+    foto_perfil longblob,
     login varchar(18) not null unique,
-    senha varchar(40) not null,
-    tipo int not null
+    senha varchar(40) not null
 );
+
+insert into usuario values (1, 'admin', '1999-10-10', '(18) 99999-9999', null, 'admin', 'admin');
 
 create table flashes(
 	id int primary key auto_increment,
     descricao varchar(40) not null,
-    imagem varchar(35) not null,
+    imagem longblob not null,
     id_usuario int not null,
     
     foreign key (id_usuario) references usuario(id)
@@ -33,7 +34,7 @@ create table orcamento(
 create table anexo_orcamento(
 	id int primary key auto_increment,
 	id_orcamento int,
-    imagem varchar(35) not null,
+    imagem longblob not null,
     foreign key (id_orcamento) references orcamento(id)
 );
 

@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -37,8 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuario.findByFotoPerfil", query = "SELECT u FROM Usuario u WHERE u.fotoPerfil = :fotoPerfil"),
     @NamedQuery(name = "Usuario.findByLogin", query = "SELECT u FROM Usuario u WHERE u.login = :login"),
     @NamedQuery(name = "Usuario.findByLoginSenha", query = "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha"),
-    @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha"),
-    @NamedQuery(name = "Usuario.findByTipo", query = "SELECT u FROM Usuario u WHERE u.tipo = :tipo")})
+    @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,15 +51,14 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "data_nascimento")
     @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
-    @Column(name = "foto_perfil")
-    private String fotoPerfil;
+    private Date dataNascimento;    
+    @Lob
+    @Column(name="foto_perfil")
+    private byte[] fotoPerfil;
     @Basic(optional = false)
     private String login;
     @Basic(optional = false)
     private String senha;
-    @Basic(optional = false)
-    private int tipo;
     
     private String telefone;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
@@ -80,7 +79,6 @@ public class Usuario implements Serializable {
         this.dataNascimento = dataNascimento;
         this.login = login;
         this.senha = senha;
-        this.tipo = tipo;
     }
 
     public Integer getId() {
@@ -117,13 +115,13 @@ public class Usuario implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getFotoPerfil() {
+    public byte[] getFotoPerfil() {
         return fotoPerfil;
     }
 
-    public void setFotoPerfil(String fotoPerfil) {
+    public void setFotoPerfil(byte[] fotoPerfil) {
         this.fotoPerfil = fotoPerfil;
-    }
+}
 
     public String getLogin() {
         return login;
@@ -139,14 +137,6 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
     }
 
     @XmlTransient

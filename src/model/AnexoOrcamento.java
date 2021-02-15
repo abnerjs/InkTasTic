@@ -7,11 +7,13 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -36,8 +38,9 @@ public class AnexoOrcamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     private Integer id;
+    @Lob
     @Basic(optional = false)
-    private String imagem;
+    private byte[] imagem;
     @JoinColumn(name = "id_orcamento", referencedColumnName = "id")
     @ManyToOne
     private Orcamento idOrcamento;
@@ -49,7 +52,7 @@ public class AnexoOrcamento implements Serializable {
         this.id = id;
     }
 
-    public AnexoOrcamento(Integer id, String imagem) {
+    public AnexoOrcamento(Integer id, byte[] imagem) {
         this.id = id;
         this.imagem = imagem;
     }
@@ -62,11 +65,11 @@ public class AnexoOrcamento implements Serializable {
         this.id = id;
     }
 
-    public String getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
 

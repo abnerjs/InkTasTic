@@ -9,8 +9,6 @@ import control.ControleUsuario;
 //import control.ControleCaixa;
 import java.awt.Color;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.util.Date;
 import javax.persistence.NoResultException;
 import model.Usuario;
 import model.Caixa;
